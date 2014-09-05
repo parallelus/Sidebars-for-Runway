@@ -50,7 +50,7 @@ if (is_admin()) {
 // Setup a custom button in the title
 function title_button_new_sidebar( $title ) {
 	if ( $_GET['page'] == 'sidebars' ) {
-		$title .= ' <a href="'.admin_url('admin.php?page=sidebars&navigation=add-sidebar').'" class="add-new-h2">'. __( 'Add new sidebar', FRAMEWORK_TEXT ) .'</a>';
+		$title .= ' <a href="'.admin_url('admin.php?page=sidebars&navigation=add-sidebar').'" class="add-new-h2">'. __( 'Add new sidebar', 'framework' ) .'</a>';
 	}
 	return $title;
 }

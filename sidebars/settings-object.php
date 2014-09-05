@@ -73,7 +73,7 @@ class Sidebar_Admin_Object extends Runway_Admin_Object {
 	// Add hooks & crooks
 	function add_actions() {
 		//include JS (from "load_admin_js" function at end of page)
-		add_action('admin_print_scripts-' . $this->parent_menu . '_page_' . $this->slug, array(&$this, 'load_admin_js'));
+		add_action('admin_print_scripts-' . $this->parent_menu . '_page_' . $this->slug, array($this, 'load_admin_js'));
 		// Init action
 		add_action( 'init', array( $this, 'init' ) );		
 		
