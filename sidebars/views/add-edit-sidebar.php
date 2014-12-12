@@ -29,7 +29,7 @@
 			</tr>
 		</tbody>
 	</table>
-	<input class="button-primary" id="submit-button" type="button" value="Save Settings">
+	<input class="button-primary" id="submit-button" type="button" value="<?php echo __('Save Settings', 'framework'); ?>">
 </form>
 <!-- Form validation -->
 <script type="text/javascript">
