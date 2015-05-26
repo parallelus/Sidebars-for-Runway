@@ -1,4 +1,4 @@
-<form action="<?php echo $this->self_url(); ?>&action=update-sidebar" method="post" id="add-edit-sidebar">
+<form action="<?php echo esc_url($this->self_url()); ?>&action=update-sidebar" method="post" id="add-edit-sidebar">
 	<table class="form-table">
 		<tbody>
 			<tr class="">
