@@ -3,7 +3,7 @@
 global $sidebar_admin, $sidebar_settings;
 
 $link = admin_url('themes.php?page=sidebars');
-$redirect = '<script type="text/javascript">window.location = "'.$link.'";</script>';
+$redirect = '<script type="text/javascript">window.location = "'. esc_url_raw($link) .'";</script>';
 
 // $required = '<em class="required">' . __('Required', 'framework') . '</em>';
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
@@ -22,7 +22,7 @@ if($action != ''){
 					'description' => $description,
 				);				
 				$sidebar_admin->update_sidebar($options);
-				echo $redirect;				
+				echo  $redirect; // escaped above				
 			}
 		} break;
 
@@ -30,7 +30,7 @@ if($action != ''){
 			$alias = isset($_REQUEST['alias']) ? sanitize_title($_REQUEST['alias']) : '';
 			if($alias != ''){
 				$sidebar_admin->delete_sidebar($alias);
-				echo $redirect;	
+				echo  $redirect;	// escaped above
 			}
 		} break;
 		

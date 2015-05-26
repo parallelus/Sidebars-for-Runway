@@ -18,18 +18,18 @@
 							<p><strong><?php rf_e($values['title']); ?></strong></p> 
 						</td>
 						<td class="column-alias">
-							<p><?php echo $values['alias']; ?></p>
+							<p><?php echo  $values['alias']; ?></p>
 						</td>
 						<td class="column-shortcode">
-							<p>[sidebar alias="<?php echo $values['alias']; ?>"]</p>
+							<p>[sidebar alias="<?php echo  $values['alias']; ?>"]</p>
 						</td>
 						<td class="column-description">
 							<p><?php rf_e($values['description']); ?></p>
 						</td>
 						<td class="column-description">
 							<p>
-								<a href="<?php echo $this->self_url('edit-sidebar'); ?>&alias=<?php echo $values['alias']; ?>"><?php _e('Edit', 'framework') ?></a> | 
-								<a style="color: #BC0B0B;" href="<?php echo $this->self_url(); ?>&action=delete-sidebar&alias=<?php echo $values['alias']; ?>"><?php _e('Delete', 'framework') ?></a>
+								<a href="<?php echo esc_url( $this->self_url('edit-sidebar') .'&alias='. $values['alias'] ); ?>"><?php _e('Edit', 'framework') ?></a> | 
+								<a style="color: #BC0B0B;" href="<?php echo esc_url( $this->self_url() .'&action=delete-sidebar&alias='. $values['alias'] ); ?>"><?php _e('Delete', 'framework') ?></a>
 							</p>
 						</td>
 					</tr>

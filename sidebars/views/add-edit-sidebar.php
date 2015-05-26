@@ -1,4 +1,4 @@
-<form action="<?php echo $this->self_url(); ?>&action=update-sidebar" method="post" id="add-edit-sidebar">
+<form action="<?php echo esc_url($this->self_url()); ?>&action=update-sidebar" method="post" id="add-edit-sidebar">
 	<table class="form-table">
 		<tbody>
 			<tr class="">
@@ -29,7 +29,7 @@
 			</tr>
 		</tbody>
 	</table>
-	<input class="button-primary" id="submit-button" type="button" value="Save Settings">
+	<input class="button-primary" id="submit-button" type="button" value="<?php echo __('Save Settings', 'framework'); ?>">
 </form>
 <!-- Form validation -->
 <script type="text/javascript">
