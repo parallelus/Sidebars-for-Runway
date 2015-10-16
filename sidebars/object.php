@@ -13,9 +13,9 @@ class Sidebar_Settings_Object extends Runway_Object {
 	}
 
 	public function add_shortcodes(){
-		add_shortcode('sidebar', array($this, 'sidebar_shortcode'));		
+		add_shortcode('sidebar', array($this, 'sidebar_shortcode'));
 	}
-	
+
 	function init_sidebars(){
 		// Register each sidebar
 	    $sidebars = $this->get_sidebars();
@@ -30,9 +30,9 @@ class Sidebar_Settings_Object extends Runway_Object {
 				$name = $value['title'];
 				$description = $value['description'];
 				$alias = $value['alias'];
-				
+
 				$sidebar_class = $this->name_to_class($alias);
-				
+
 				register_sidebar(array(
 			    	'name'=>$name,
 					'id'=> "generated_sidebar-$id",
@@ -41,17 +41,17 @@ class Sidebar_Settings_Object extends Runway_Object {
 		   			'after_widget' => '</div>',
 		   			'before_title' => '<h4 class="widgetTitle">',
 					'after_title' => '</h4>',
-		    	));				
+		    	));
 			}
 		}
 	}
 
 	// Gets the generated sidebars
 	//...............................................
-	function get_sidebars(){		
+	function get_sidebars(){
 		return $this->sidebars_options['sidebars_list'];
 	}
-	
+
 	function name_to_class($name){
 		$class = str_replace(array(' ',',','.','"',"'",'/',"\\",'+','=',')','(','*','&','^','%','$','#','@','!','~','`','<','>','?','[',']','{','}','|',':',),'',$name);
 		return $class;
@@ -62,23 +62,23 @@ class Sidebar_Settings_Object extends Runway_Object {
 		global $wp_registered_sidebars, $wp_registered_widgets;
 		extract(shortcode_atts(array(
 			'alias' => false
-	    ), $atts));	    
-		
+	    ), $atts));
+
 		if ( $alias ) {
 			// find the sidebar ID by the alias
 			$sidebars = $this->get_sidebars();
-			foreach($sidebars as $key => $value){
+			foreach($sidebars as $key => $value) {
 				if (isset($value['alias']) && $value['alias'] == $alias) {
 					$id = $key;
 					break;
 				}
 			}
-		
-			if ($id) {
+
+			if (isset($id)) {
 				// turn on output buffering to capture output
 				ob_start();
 				// generate sidebar
-				dynamic_sidebar($id);
+				dynamic_sidebar('generated_sidebar-'.$id);
 				// get output content
 				$content = ob_get_clean();
 				// return the content

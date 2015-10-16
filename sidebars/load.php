@@ -2,7 +2,7 @@
 /*
     Extension Name: Sidebars
     Extension URI: https://github.com/parallelus/Sidebars-for-Runway
-    Version: 0.8.2
+    Version: 0.8.3
     Description: Create Sidebars and Widget ready areas in WordPress themes.
     Author: Parallelus
     Author URI: http://runwaywp.com
@@ -20,7 +20,7 @@ $fields = array(
 $default = array();
 
 $settings = array(
-	'name' => __('Sidebars', 'framework'), 
+	'name' => __('Sidebars', 'framework'),
 	'option_key' => $shortname.'sidebar_settings',
 	'fields' => $fields,
 	'default' => $default,
