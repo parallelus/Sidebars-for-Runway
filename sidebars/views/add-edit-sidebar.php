@@ -3,8 +3,8 @@
 		<tbody>
 			<tr class="">
 				<th scope="row" valign="top">
-					<?php _e('Title', 'framework') ?>
-					<p class="description required"><?php _e('Required', 'framework') ?></p>
+					<?php _e('Title', 'runway') ?>
+					<p class="description required"><?php _e('Required', 'runway') ?></p>
 				</th>
 				<td>
 					<input class="input-text " type="text" name="sidebar-title" id="sidebar-title" value="<?php echo isset($sidebar) ? $sidebar['title'] : ''; ?>">
@@ -13,7 +13,7 @@
 			<tr class="">
 				<th scope="row" valign="top">
 					Alias
-					<p class="description required"><?php _e('Required', 'framework') ?></p>
+					<p class="description required"><?php _e('Required', 'runway') ?></p>
 				</th>
 				<td>
 					<input class="input-text " type="text" name="sidebar-alias" id="sidebar-alias" <?php echo isset($sidebar) ? 'readonly="readonly"' : ''; ?> value="<?php echo isset($sidebar) ? $sidebar['alias'] : ''; ?>">
@@ -21,7 +21,7 @@
 			</tr>
 			<tr class="">
 				<th scope="row" valign="top">
-					<?php _e('Description', 'framework') ?>
+					<?php _e('Description', 'runway') ?>
 				</th>
 				<td>
 					<textarea class="input-textarea " name="sidebar-description"><?php echo isset($sidebar) ? $sidebar['description'] : ''; ?></textarea>
@@ -29,7 +29,7 @@
 			</tr>
 		</tbody>
 	</table>
-	<input class="button-primary" id="submit-button" type="button" value="<?php echo __('Save Settings', 'framework'); ?>">
+	<input class="button-primary" id="submit-button" type="button" value="<?php echo __('Save Settings', 'runway'); ?>">
 </form>
 <!-- Form validation -->
 <script type="text/javascript">
@@ -43,7 +43,7 @@
 			}
 
 			if(sidebarAlias == ''){
-				$('#sidebar-alias').css('border-color', 'Red');	
+				$('#sidebar-alias').css('border-color', 'Red');
 			}
 
 			if(sidebarTitle != '' && sidebarAlias != ''){

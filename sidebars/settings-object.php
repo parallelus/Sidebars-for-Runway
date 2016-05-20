@@ -18,7 +18,7 @@ class Sidebar_Admin_Object extends Runway_Admin_Object {
 
 			if( IS_CHILD && get_template() == 'runway-framework') {
 				$file_name = $this->option_key.'.json';
-				
+
 				if(!function_exists('WP_Filesystem'))
 					require_once(ABSPATH . 'wp-admin/includes/file.php');
 				WP_Filesystem();
@@ -45,7 +45,7 @@ class Sidebar_Admin_Object extends Runway_Admin_Object {
 
 	function get_sidebar($alias){
 		if($alias != ''){
-			return $this->sidebars_options['sidebars_list'][$alias];			
+			return $this->sidebars_options['sidebars_list'][$alias];
 		}
 		return false;
 	}
@@ -62,21 +62,21 @@ class Sidebar_Admin_Object extends Runway_Admin_Object {
 			echo "\n\n<!-- begin generated sidebar [$selected_sidebar] -->\n";
 			//echo "<!-- selected: $selected_sidebar -->";
 			dynamic_sidebar($selected_sidebar);
-			echo "\n<!-- end generated sidebar -->\n\n";			
+			echo "\n<!-- end generated sidebar -->\n\n";
 		}else{
-			//dynamic_sidebar($index);			
+			//dynamic_sidebar($index);
 			if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar($index) ) :
 			endif;
 		}
 	}
-	
+
 	// Add hooks & crooks
 	function add_actions() {
 		//include JS (from "load_admin_js" function at end of page)
 		add_action('admin_print_scripts-' . $this->parent_menu . '_page_' . $this->slug, array($this, 'load_admin_js'));
 		// Init action
-		add_action( 'init', array( $this, 'init' ) );		
-		
+		add_action( 'init', array( $this, 'init' ) );
+
 	}
 
 	function init() {
@@ -102,15 +102,15 @@ class Sidebar_Admin_Object extends Runway_Admin_Object {
 			// Validate fields
 			if (!esc_attr($_POST['label'])) {
 				$this->set_navigation('sidebar');
-				return $this->error(__('You must enter a title.', 'framework')); 
+				return $this->error(__('You must enter a title.', 'runway'));
 			}
 			if (!esc_attr($_POST['alias'])) {
 				$_POST['alias'] = $_POST['label'];
 			}
-									
+
 			// No keys or indexes for this type. Auto-generate and stored in hidden fields.
-			// Unique keys are important, otherwise a reference to this item could fail if the title is used as the key and it gets changed. 
-			if (!$_POST['key']) { 
+			// Unique keys are important, otherwise a reference to this item could fail if the title is used as the key and it gets changed.
+			if (!$_POST['key']) {
 				$_POST['key'] = base_convert(microtime(), 10, 36);
 			}
 			$_POST['alias'] = sanitize_title($_POST['alias']);
@@ -128,15 +128,15 @@ class Sidebar_Admin_Object extends Runway_Admin_Object {
 			// Validate fields
 			if (!esc_attr($_POST['label'])) {
 				$this->set_navigation('tab');
-				return $this->error(__('You must enter a title.', 'framework')); 
+				return $this->error(__('You must enter a title.', 'runway'));
 			}
 			if (!esc_attr($_POST['alias'])) {
 				$_POST['alias'] = $_POST['label'];
 			}
-									
+
 			// No keys or indexes for this type. Auto-generate and stored in hidden fields.
-			// Unique keys are important, otherwise a reference to this item could fail if the title is used as the key and it gets changed. 
-			if (!$_POST['key']) { 
+			// Unique keys are important, otherwise a reference to this item could fail if the title is used as the key and it gets changed.
+			if (!$_POST['key']) {
 				$_POST['key'] = base_convert(microtime(), 10, 36);
 				$_POST['alias'] = $_POST['key'];  // sidebars need the alias field
 			}
@@ -147,15 +147,15 @@ class Sidebar_Admin_Object extends Runway_Admin_Object {
 		// If all is OK
 		return true;
 	}
-	
+
 	function load_objects() {
-		global $sidebar_settings;		
+		global $sidebar_settings;
 		$this->data = $sidebar_settings->load_objects();
 		return $this->data;
 	}
 
 	function load_admin_js() {
-		/* none */		
-	} 
+		/* none */
+	}
 
 } ?>
