@@ -1,4 +1,5 @@
 <form action="<?php echo esc_url( $this->self_url() ); ?>&action=update-sidebar" method="post" id="add-edit-sidebar">
+	<?php wp_nonce_field( 'update-sidebar' ); ?>
 	<table class="form-table">
 		<tbody>
 			<tr>

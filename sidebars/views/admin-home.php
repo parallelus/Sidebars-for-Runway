@@ -35,8 +35,7 @@
 					<p>
 						<a href="<?php echo esc_url( $this->self_url( 'edit-sidebar' ) . '&alias=' . $values['alias'] ); ?>"><?php _e( 'Edit', 'runway' ); ?></a>
 						|
-						<a style="color: #BC0B0B;"
-						   href="<?php echo esc_url( $this->self_url() . '&action=delete-sidebar&alias=' . $values['alias'] ); ?>"><?php _e( 'Delete', 'runway' ); ?></a>
+						<a style="color: #BC0B0B;" href="<?php echo esc_url( wp_nonce_url( $this->self_url() .'&action=delete-sidebar&alias='. $values['alias'], 'delete-sidebar' ) ); ?>"><?php _e( 'Delete', 'runway' ); ?></a>
 					</p>
 				</td>
 			</tr>
