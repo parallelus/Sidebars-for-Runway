@@ -70,7 +70,7 @@ class Sidebar_Admin_Object extends Runway_Admin_Object {
 	//...............................................
 	public function get_sidebar_content( $index ) {
 
-		wp_reset_query();
+		//wp_reset_query();
 		global $wp_query;
 		$post             = $wp_query->get_queried_object();
 		$selected_sidebar = get_post_meta( $post->ID, 'customSidebar', true );
