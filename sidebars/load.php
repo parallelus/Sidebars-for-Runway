@@ -2,7 +2,7 @@
 /*
     Extension Name: Sidebars
     Extension URI: https://github.com/parallelus/Sidebars-for-Runway
-    Version: 0.8.4
+    Version: 0.8.5
     Description: Create Sidebars and Widget ready areas in WordPress themes.
     Author: Parallelus
     Author URI: http://runwaywp.com

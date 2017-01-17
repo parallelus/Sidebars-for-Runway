@@ -24,12 +24,16 @@ class Sidebar_Admin_Object extends Runway_Admin_Object {
 			if ( IS_CHILD && get_template() == 'runway-framework' ) {
 				$file_name = $this->option_key . '.json';
 
-				if ( ! function_exists( 'WP_Filesystem' ) ) {
-					require_once( ABSPATH . 'wp-admin/includes/file.php' );
-				}
-				WP_Filesystem();
+				if ( function_exists( 'get_runway_wp_filesystem' ) ) {
+					$wp_filesystem = get_runway_wp_filesystem();
+				} else {
+					if ( ! function_exists( 'WP_Filesystem' ) ) {
+						require_once( ABSPATH . 'wp-admin/includes/file.php' );
+					}
 
-				global $wp_filesystem;
+					WP_Filesystem();
+					global $wp_filesystem;
+				}
 
 				if ( $wp_filesystem->put_contents( THEME_DIR . 'data/' . $file_name, json_encode( $this->sidebars_options ), FS_CHMOD_FILE ) ) {
 					return true;
