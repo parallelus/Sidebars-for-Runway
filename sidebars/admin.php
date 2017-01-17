@@ -10,7 +10,7 @@ if ( $action != '' ) {
 
 	switch ( $action ) {
 		case 'update-sidebar': {
-			check_admin_referer('update-sidebar');
+			check_admin_referer( 'update-sidebar' );
 			
 			$title       = isset( $_REQUEST['sidebar-title'] ) ? $_REQUEST['sidebar-title'] : '';
 			$alias       = isset( $_REQUEST['sidebar-alias'] ) ? sanitize_title( $_REQUEST['sidebar-alias'] ) : '';
@@ -29,7 +29,7 @@ if ( $action != '' ) {
 			break;
 
 		case 'delete-sidebar': {
-			check_admin_referer('delete-sidebar');
+			check_admin_referer( 'delete-sidebar' );
 			
 			$alias = isset( $_REQUEST['alias'] ) ? sanitize_title( $_REQUEST['alias'] ) : '';
 			if ( $alias != '' ) {
